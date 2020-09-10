@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %} Permission Denied | EduSys {% endblock %} {% block content %}
+{% load static %}
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-8 rounded text-center p-3 m-3">
+        <h1 class="text-danger">Error 403: Permission Denied</h1>
+        <p class="text-dark">
+            Sorry! You don't have permission to access this page.
+        </p>
+        <div class="row d-flex justify-content-center align-items-center">
+            <img src="{% static '403.svg'%}" style="width: 70vmin;">
+        </div>
+    </div>
+</div>
+{% endblock %}

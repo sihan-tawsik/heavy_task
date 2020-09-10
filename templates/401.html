@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %} Unauthorized | EduSys {% endblock %} {% block content %}
+{% load static %}
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-8 rounded text-center p-3 m-3">
+        <h1 class="text-danger">Error 403: Unauthorized</h1>
+        <p class="text-dark">
+            You must login to continue.
+        </p>
+        <div class="row d-flex justify-content-center align-items-center">
+            <img src="{% static 'sorry.svg'%}" style="width: 70vmin;">
+        </div>
+    </div>
+</div>
+{% endblock %}

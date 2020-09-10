@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Unauthorized | EduSys {% endblock %}
+{% block content %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'bg_image.css' %}" />
+{% endblock %}
+
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-5 bg-danger rounded text-center p-3 m-3">
+        <h1 class="text-light">{{error_code}}</h1>
+        <h2 class="text-light">{{error_title}}</h2>
+        <p class="text-light">
+            {{error_message}}
+        </p>
+        {% block redirect_button %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

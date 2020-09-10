@@ -1,0 +1,1 @@
+web: gunicorn heavy_task.wsgi

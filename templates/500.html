@@ -1,0 +1,15 @@
+<!-- templates/404.html -->
+{% extends "base.html" %} {% block title %} Server Error | EduSys {% endblock %} {% block content %}
+{% load static %}
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-8 rounded text-center p-3 m-3">
+        <h1 class="text-danger">Error 500: Server Error</h1>
+        <p class="text-dark">
+            Oops! Sorry, our bad! Please contact the helpline and let us know the issue asap.
+        </p>
+        <div class="row d-flex justify-content-center align-items-center">
+            <img src="{% static 'sorry.svg'%}" style="width: 70vmin;">
+        </div>
+    </div>
+</div>
+{% endblock %}
