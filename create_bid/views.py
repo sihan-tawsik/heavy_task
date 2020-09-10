@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 
 from .forms import CreateBidForm
-from .models import Tasks
+from .models import Tasks, Landscape
 
 
 @transaction.atomic
@@ -29,6 +29,19 @@ def create_bid(request):
         address = form.cleaned_data.get("address")
         sign = form.cleaned_data.get("sign")
         assigend_to = request.user.id
+
+        office = form.cleaned_data.get("office")
+        home = form.cleaned_data.get("home")
+        cell = form.cleaned_data.get("cell")
+        email = form.cleaned_data.get("email")
+        submitted_to = form.cleaned_data.get("submitted_to")
+        date = form.cleaned_data.get("date")
+        sub_total = form.cleaned_data.get("sub_total")
+        tax = form.cleaned_data.get("tax")
+        total_contracts = form.cleaned_data.get("total_contracts")
+        sum_of = form.cleaned_data.get("sum_of")
+        final_payment = form.cleaned_data.get("final_payment")
+
         fields = {
             "user_id": user_id,
             "title": title,
@@ -49,6 +62,22 @@ def create_bid(request):
         }
         tasks = Tasks(**fields)
         tasks.save()
+        landscape_fields = {
+            "job_id": tasks,
+            "office": office,
+            "home": home,
+            "cell": cell,
+            "email": email,
+            "submitted_to": submitted_to,
+            "date": date,
+            "subtotal": sub_total,
+            "tax": tax,
+            "total_contracts": total_contracts,
+            "sum_of": sum_of,
+            "final_payment": final_payment,
+        }
+        landscape = Landscape(**landscape_fields)
+        landscape.save()
         return redirect("/create_bid/")
     return render(
         request, "crispy_form.html", {"form": form, "form_title": "Create Bid"},

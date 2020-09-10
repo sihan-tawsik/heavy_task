@@ -24,6 +24,17 @@ class CreateBidForm(forms.Form):
     duration_type = forms.ChoiceField(choices=DURATION_TYPES)
     address = forms.CharField(label="Address")
     sign = forms.CharField(label="Authorized Sign")
+    office = forms.CharField(label="Office")
+    home = forms.CharField(label="Home")
+    cell = forms.CharField(label="Cell")
+    email = forms.EmailField(label="Email")
+    submitted_to = forms.CharField(label="Submitted To")
+    date = forms.DateField(widget =forms.SelectDateWidget)
+    sub_total = forms.FloatField(label="Sub Total")
+    tax = forms.FloatField(label="Tax")
+    total_contracts = forms.FloatField(label="Total Contracts")
+    sum_of = forms.FloatField(label="Sum of")
+    final_payment = forms.FloatField(label="Final Payment")
 
     def __init__(self, *args, **kwargs):
         super(CreateBidForm, self).__init__(*args, **kwargs)
@@ -51,6 +62,17 @@ class CreateBidForm(forms.Form):
                 Column("duration_type", css_class="form-group col-md-6 mb-0"),
             ),
             "address",
+            "office",
+            "home",
+            "cell",
+            "email",
+            "submitted_to",
+            "date",
+            "sub_total",
+            "tax",
+            "total_contracts",
+            "sum_of",
+            "final_payment",
             "sign",
             FormActions(
                 Submit("submit", "Create bid", css_class="btn btn-block btn-lg")
@@ -72,6 +94,17 @@ class CreateBidForm(forms.Form):
         duration_type = self.cleaned_data.get("duration_type")
         address = self.cleaned_data.get("address")
         sign = self.cleaned_data.get("sign")
+        office = self.cleaned_data.get("office")
+        home = self.cleaned_data.get("home")
+        cell = self.cleaned_data.get("cell")
+        email = self.cleaned_data.get("email")
+        submitted_to = self.cleaned_data.get("submitted_to")
+        date = self.cleaned_data.get("date")
+        sub_total = self.cleaned_data.get("sub_total")
+        tax = self.cleaned_data.get("tax")
+        total_contracts = self.cleaned_data.get("total_contracts")
+        sum_of = self.cleaned_data.get("sum_of")
+        final_payment = self.cleaned_data.get("final_payment")
 
         if not (title or job_type):
             raise forms.ValidationError("Cannot be empty")
